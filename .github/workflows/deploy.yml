@@ -9,6 +9,7 @@ on:
       - closed
     branches:
       - main
+  workflow_dispatch: # allows manual trigger from GitHub Actions UI
 
 # Allow one concurrent deployment
 concurrency:
