@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #06061a;
+    color: #e2e8f0;
+    min-height: 100vh;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0d0d2b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e1e5a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #7c3aed40;
+    color: #e2e8f0;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-forge-card/80 backdrop-blur-sm border border-forge-border/80;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px #7c3aed30, 0 0 40px #7c3aed15;
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px #06b6d430, 0 0 40px #06b6d415;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-primary-gradient;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Framer motion overrides */
+[data-framer-component-type] {
+  will-change: transform, opacity;
+}
